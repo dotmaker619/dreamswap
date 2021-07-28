@@ -1,0 +1,477 @@
+body{
+  margin: 0;
+  padding:0;
+  position: relative;
+}
+@font-face {
+  font-family: 'DefaultFont';
+  src: url("../fonts/PeeJay.ttf");
+}
+
+.ds-body {
+  background-image: url("../img/bg/Day_BG1440.png");
+  background-size: cover;
+  position: relative;
+  font-family: DefaultFont;
+  background-position: center top;
+  background-repeat: no-repeat;
+  padding-bottom: 0px;
+}
+
+.mode-switch {
+  position: fixed;
+  left: 20px;
+  bottom: 10px;
+  height: 50px;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::placeholder {
+  color: #575757;
+  opacity: 0.69;
+}
+.ds-header {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.ds-content {
+  /*width: 82%;*/
+  max-width: 1320px;
+  height: auto;
+  margin: 30px auto 0px auto;
+}
+
+.ds-cards {
+  width: 100%;
+  background: transparent;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .ds-card {
+    width: 290px;
+    height: 400px;
+    margin: 20px 30px;
+    .ds-current-apr {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      span{
+        padding: 0 15px;
+        float: left;
+        font-weight: normal;
+      }
+      span:first-child {
+        color: #575757;
+        font-size: 24px;
+      }
+      span:last-child {
+        font-size: 30px;
+        color: #575757;
+      }
+    }
+    .ds-card-content {
+      width: 100%;
+      height: 360px;
+      position: relative;
+      box-shadow: 0px 0px 6px #000000;
+      border: 3px solid #2251EC33;
+      border-radius: 12px;
+      opacity: 1;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      .ds-card-title {
+        text-align: center;
+        padding: 12px 0;
+        border-bottom: 2px solid #2251EC33;
+        .ds-card-logo {
+          width: 23px;
+          height: 23px;
+        }
+        .marginleft8 {
+          margin-left: -8px;
+        }
+        span {
+          margin-left: 5px;
+          color: #575757;
+          font-size: 22px;
+          font-weight: normal;
+        }
+      }
+      .ds-card-price {
+        border-bottom: 2px solid #2251EC33;
+        div {
+          height: 30px;
+          padding: 10px 10px;
+          span:first-child {
+            float: left;
+            color: #575757;
+            opacity: 0.9;
+            font-size: 20px;
+            font-weight: normal;
+          }
+          span:last-child {
+            float: right;
+            color: #434343;
+            font-size: 32px;
+            font-weight: normal;
+          }
+        }
+      }
+      .ds-card-connect {
+        display: flex;
+        justify-content: center;
+        flex-direction: column; 
+        align-items: center;
+        border-bottom: 2px solid #2251EC33;
+        padding: 30px 0 20px 0;
+        div {
+          width: 180px;
+          margin-bottom: 10px;
+          span:first-child {
+            float: left;
+            font-size: 18px;
+            font-weight: normal;
+            font-family: DefaultFont !important;
+          }
+          span:last-child {
+            float: right;
+            font-size: 10px;
+            font-weight: normal;
+            font-family: DefaultFont;
+            background-color: #126218;
+            color: white;
+            border-radius: 5px;
+            opacity: 0.69;
+            transition: 0.5s;
+            padding: 5px 15px;
+            &:hover {
+              opacity: 1;
+              cursor: pointer;
+            }
+          }
+        }
+
+        .amount {
+          width: 100px;
+          padding: 5px 45px;
+          margin-bottom: 15px;
+          font-size: 15px;
+          color: #575757;
+          font-weight: normal;
+          font-family: DefaultFont;
+          opacity: 0.8;
+          border: 1px solid #575757;
+          border-radius: 6px;
+          background: transparent;
+          &:focus {
+            outline: none;
+          }
+        }
+        button {
+          padding: 5px 75px;
+          font-size: 22px;
+          font-family: DefaultFont;
+          border-radius: 8px;
+          color: white;
+          background-color: #0C1445;
+          border: none;
+          font-weight: 700;
+          opacity: 0.8;
+          transition: 0.5s;
+          &:hover {
+            opacity: 1;
+            cursor: pointer;
+          }
+        }
+      }
+      .ds-card-tvl {
+        text-align: center;
+        padding: 5px 0;
+        span:first-child {
+          font-size: 20px;
+          opacity: 0.7;
+          font-weight: normal;
+          color: #575757;
+        }
+        span:last-child {
+          opacity: 1;
+          font-size: 22px;
+          font-weight: normal;
+          color: #575757;
+        }
+      }
+    }
+  }
+}
+
+
+.dark-bg {
+  background-image: url("../img/bg/Dark_BG1440.png");
+  .drop-menu {
+    div:first-child {
+      color: white;
+    }
+  }
+  span, button {
+    color: white !important;
+  }
+  .ds-card-connect {
+    span:last-child {
+      background-color: #680808 !important;
+      opacity: 40%;
+    }
+    button:last-child {
+      background-color: #450829 !important;
+    }
+  }
+  .ds-current-apr {
+    span:last-child {
+      color: #2251EC !important;
+    }
+  }
+  .ds-card {
+    .ds-card-content{
+      .ds-card-connect {
+        .amount{
+          color: white;
+        }
+        .amount::placeholder{
+          color: white;
+        }
+      }
+    }
+  }
+
+}
+
+.top-connect {
+  position: absolute;
+  right: 20px; top: 40px;
+  border-radius: 20px;
+  padding: 3px 20px;
+  font-size: 20px;
+  font-weight: normal;
+  font-family: DefaultFont;
+  transition: 0.3s;
+  opacity: 0.8;
+  background-color: #2251EC;
+  color: white;
+  border: none;
+  &:hover {
+    cursor: pointer;
+    opacity: 1;
+  }
+}
+
+.drop-menu {
+  position: absolute;
+  display: none;
+  z-index: 999;
+  top: 100px; right: 50px;
+  width: 200px;
+  height: auto;
+  box-shadow: 0px 0px 6px #000000;
+  border: 3px solid #2251EC33;
+  border-radius: 12px;
+  opacity: 1;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  .drop-menu-item {
+    padding: 9px 9px 9px 16px;
+    position: relative;
+    opacity: 0.8;
+    transition: 0.5s;
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+      background-color: #667fd1;
+    }
+    span {
+      position: absolute;
+      top: 10px; left: 60px;
+      font-size: 23px;
+      color: white;
+      opacity: o.8;
+      font-weight: 900;
+    }
+  }
+  .drop-menu-icon {
+    width: 30px;
+    height: 30px;
+  }
+  div:first-child {
+    font-size: 22px;
+    color: #2251EC;
+    font-weight: 900;
+    padding: 6px 0 6px 16px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #2251EC33;
+  }
+}
+
+.show {display: block;}
+.show1 {
+  display: block;
+    left: 50% !important; top: 50% !important;
+    // margin-left: -200px !important;
+    margin-top: -100px;
+    margin-left: -100px;
+}
+
+@media screen and (max-width: 281px) {
+  .ds-header {
+    text-align: left !important;
+  }
+  .ds-logo {
+    width: 120px;
+    margin-left: 5px;
+  }
+  .top-connect {
+    right: 10px; top: 20px;
+    padding: 3px 15px;
+  }
+  .ds-content {
+    width: 250px;
+  }
+  .ds-card {
+    margin: 20px 13px 20px 7px !important;
+  }
+  .ds-current-apr {
+    span:first-child {
+      font-size: 20px !important;
+    }
+    span:last-child {
+      font-size: 20px !important;
+    }
+  }
+  .ds-card-title {
+    span {
+      font-size: 20px !important;
+    }
+  }
+  .drop-menu {
+    top: 70px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 415px) and (min-width: 281px){
+  .ds-header {
+    text-align: left !important;
+  }
+  .ds-logo {
+    width: 120px;
+    margin-left: 15px;
+  }
+  .top-connect {
+    right: 20px; top: 22px;
+    padding: 3px 15px;
+  }
+  .ds-content {
+    width: 280px;
+  }
+  .ds-current-apr {
+    span:first-child {
+      font-size: 20px !important;
+    }
+    span:last-child {
+      font-size: 20px !important;
+    }
+  }
+  .ds-card {
+    margin: 20px 15px !important;
+  }
+  .ds-card-title {
+    span {
+      font-size: 20px !important;
+    }
+  }
+  .drop-menu {
+    top: 70px;
+    right: 20px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .ds-body{
+    background-image: url("../img/bg/Day_BG768.png");
+    background-position: center -10%;
+    &.dark-bg {
+      background-image: url("../img/bg/Dark_BG768.png");
+    }
+  }
+}
+@media (max-width: 900px) and (min-width: 416px) {
+  .ds-logo {
+    width: 240px;
+    margin-left: 30px;
+  }
+  .ds-header {
+    text-align: left !important;
+  }
+  .top-connect {
+    right: 30px; top: 30px;
+    padding: 6px 22px;
+  }
+  .ds-content {
+    width: 360px;
+  }
+  .drop-menu {
+    top: 90px;
+    right: 30px;
+  }
+}
+
+@media (max-width:1081px) and (min-width: 901px) {
+  .ds-content {
+    width: 750px;
+  }
+  .ds-logo {
+    width: 300px;
+    margin-left: 50px;
+  }
+  .ds-header {
+    text-align: left !important;
+  }
+  .top-connect {
+    right: 50px; top: 40px;
+    padding: 6px 50px;
+  }
+}
+
+@media (max-width: 1720px) and (min-width: 1082px) {
+  .ds-logo {
+    width: 320px;
+  }
+  .top-connect {
+    right: 50px; top: 35px;
+    padding: 9px 34px;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 1921px) and (min-width: 1721px){
+  .ds-content {
+    width: 1280px;
+  }
+  .ds-logo {
+    width: 500px;
+  }
+  .top-connect {
+    right: 80px; top: 50px;
+    padding: 15px 60px;
+    border-radius: 25px;
+  }
+  .drop-menu {
+    top: 130px;
+    right: 85px;
+  }
+}

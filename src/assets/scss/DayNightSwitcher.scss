@@ -1,0 +1,180 @@
+$blueBg: #C2E9F6;
+$blueBorder: #72cce3;
+$blueColor: #96dcee;
+$yellowBg: #fffaa8;
+$yellowBorder: #f5eb71;
+
+/** dark side **/
+$darkBg: #808fc7;
+$darkBorder: #5d6baa;
+$darkColor: #6b7abb;
+$greyBorder: #e8e8ea;
+$greyDots: #e8e8ea;
+/** general **/
+$whiteColor: #fff;
+
+.mode-switch {
+  .background {
+    background: $blueBg;
+    z-index: -1;
+    width: 100%;
+    transition: all 250ms ease-in;
+  }
+
+  .toggle--checkbox {
+    display: none;
+
+    &:checked {
+      /** This will all flip from sun to moon **/
+      /** Change the label color **/
+      ~ .background {
+        background: $darkBg;
+      }
+
+      + .toggle--label {
+        background: $darkColor;
+        border-color: $darkBorder;
+
+        &:before {
+          background: $whiteColor;
+          border-color: $greyBorder;
+          animation-name: switch;
+          animation-duration: 350ms;
+          animation-fill-mode: forwards;
+        }
+
+        &:after {
+          transition-delay: 350ms;
+          opacity: 1;
+        }
+
+        .toggle--label-background {
+          left: 28px;
+          width: 5px;
+
+          &:before {
+            width: 5px;
+            height: 5px;
+            top: -7px;
+          }
+
+          &:after {
+            width: 5px;
+            height: 5px;
+            left: -20px;
+            top: 7px;
+          }
+        }
+      }
+    }
+  }
+
+  .toggle--label {
+    /** Placeholder element, starting at blue **/
+    width: 80px;
+    height: 40px;
+    background: $blueColor;
+    border-radius: 40px;
+    border: 5px solid $blueBorder;
+    display: flex;
+    position: relative;
+    transition: all 350ms ease-in;
+
+    &:before {
+      animation-name: reverse;
+      animation-duration: 350ms;
+      animation-fill-mode: forwards;
+      transition: all 350ms ease-in;
+      content: "";
+      width: 23px;
+      height: 23px;
+      border: 5px solid $yellowBorder;
+      top: 4px;
+      left: 4px;
+      position: absolute;
+      border-radius: 30px;
+      background: $yellowBg;
+    }
+
+    /** The sun cloud and moon stars **/
+    /** Sun/Moon element **/
+    /** Gray dots on the moon **/
+    &:after {
+      transition-delay: 0ms;
+      transition: all 250ms ease-in;
+      position: absolute;
+      content: "";
+      box-shadow: $greyDots -13px 0 0 2px, $greyDots -16px 9px 0 0;
+      left: 65px;
+      top: 13px;
+      width: 5px;
+      height: 5px;
+      background: transparent;
+      border-radius: 50%;
+      opacity: 0;
+    }
+  }
+
+  .toggle--label-background {
+    width: 10px;
+    height: 3px;
+    border-radius: 3px;
+    position: relative;
+    background: $whiteColor;
+    left: 55px;
+    top: 18px;
+    transition: all 150ms ease-in;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      width: 25px;
+      height: 3px;
+      border-radius: 3px;
+      background: $whiteColor;
+      left: -10px;
+      transition: all 150ms ease-in;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 5px;
+      width: 25px;
+      height: 3px;
+      border-radius: 3px;
+      background: $whiteColor;
+      left: -10px;
+      transition: all 150ms ease-in;
+    }
+  }
+
+  @keyframes switch {
+    0% {
+      left: 4px;
+    }
+    60% {
+      left: 4px;
+      width: 23px;
+    }
+    100% {
+      left: 40px;
+      width: 23px;
+    }
+  }
+  @keyframes reverse {
+    0% {
+      left: 30px;
+      width: 23px;
+    }
+    60% {
+      left: 15px;
+      width: 23px;
+    }
+    100% {
+      left: 4px;
+    }
+  }
+
+}
